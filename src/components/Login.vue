@@ -60,9 +60,9 @@
                     const {data: res} = await this.$http.post("login", this.loginForm)//访问后台
                     if (res.flag == "ok") {
                         console.log(res.user)
+                        window.sessionStorage.setItem("user",res.user)//存储user对象
                         this.$message.success("操作成功");//信息提示
                         this.$router.push({path: "/home"})//页面路由跳转
-                        window.sessionStorage.setItem("user",res.user)//存储user对象
                     } else {
                         this.$message.error("操作失败");
                     }
